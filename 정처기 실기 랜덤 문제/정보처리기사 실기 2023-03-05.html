@@ -197,15 +197,19 @@ function getProblemList () {
 
 getProblemList();
 
+var total_count = 0;
+var total_O_cnt = 0;
+var total_X_cnt = 0;
+
 function init() {
 
 	console.log("##problemList", problemList);
 	
 	problembakList = problemList;
 	
-	var total_count = problemList.length ;
-	var total_O_cnt = 0;
-	var total_X_cnt = 0;
+	total_count = problemList.length ;
+	total_O_cnt = 0;
+	total_X_cnt = 0;
 	$(document).ready(function(){
 	
 		$("#cnt1").html(problemList.length);
@@ -289,11 +293,11 @@ function init() {
 			}
 
 			function fnBtnCheck(t){
-				var d = $(t).parent().parent().data("d");
+				var d = $(t).parent().parent().parent().data("d");
 				var dL = String(d).split(",").length;
 				var ch_BtnCheck = true;
 				var thisCheckedCnt = 0;
-				$(t).parent().parent().find('input:checkbox[name="gender"]').each(function() {
+				$(t).parent().find('input:checkbox[name="gender"]').each(function() {
 					var chListCheck = false;
 					if(this.checked && String(d).indexOf(this.value) > -1){
 						$(this).parent().css("color","rgb(5, 226, 5)");//#00FF00 green
@@ -311,18 +315,18 @@ function init() {
 				});
 				if(ch_BtnCheck && dL == thisCheckedCnt){
 					total_O_cnt++;
-					$(t).parent().parent().css("border-color","rgb(5, 226, 5)");
+					$(t).parent().parent().parent().css("border-color","rgb(5, 226, 5)");
 					console.log('맞은 개수 : '+total_O_cnt+ ' 틀린 개수 : '+total_X_cnt); 
 				}else{
 					total_X_cnt++;
-					$(t).parent().parent().css("border-color","red");
+					$(t).parent().parent().parent().css("border-color","red");
 					console.log('맞은 개수 : '+total_O_cnt+ ' 틀린 개수 : '+total_X_cnt); 
 				}
 			}
 
 			function fnBtnType(t) {
-				var dList = $(t).parent().parent().data("d").split("###");
-				var a = $(t).parent().next().children().val();
+				var dList = $(t).parent().parent().parent().data("d").split("###");
+				var a = $(t).prev().val();
 				var flag = false;
 				for(var d of dList) {
 					var dCopy = d.toLowerCase().replaceAll(" ", "");
@@ -335,8 +339,8 @@ function init() {
 					if(dCopy == a || dCopy.replaceAll(",","<br>") == a) {
 						flag = true;
 						total_O_cnt++;
-						$(t).parent().next().children().css("color", "rgb(5, 226, 5)");
-						$(t).parent().parent().css("border-color", "rgb(5, 226, 5)");
+						$(t).prev().css("color", "rgb(5, 226, 5)");
+						$(t).parent().parent().parent().css("border-color", "rgb(5, 226, 5)");
 						console.log('맞은 개수 : '+total_O_cnt+ ' 틀린 개수 : '+total_X_cnt); 
 						break;
 					}
@@ -344,12 +348,12 @@ function init() {
 
 				if(!flag) {
 					total_X_cnt++;
-					$(t).parent().next().children().css("color", "red");
-					$(t).parent().parent().css("border-color", "red");
+					$(t).prev().css("color", "red");
+					$(t).parent().parent().parent().css("border-color", "red");
 					console.log('맞은 개수 : '+total_O_cnt+ ' 틀린 개수 : '+total_X_cnt);
 				}
 
-				var d = $(t).parent().parent().data("d");
+				var d = $(t).parent().parent().parent().data("d");
 				if(d.includes("###")) {
 					d = d.replace("###", " (");
 					d += ")";
@@ -357,7 +361,7 @@ function init() {
 				var h = "<div>정답 : ";
 				h += "<span style='color: rgb(5, 226, 5);'>" + d + "</span>";
 				h += "</div>";
-				$(t).parent().next().append(h);
+				$(t).parent().append(h);
 			}
 						
 			function fnRandom(n){
