@@ -185,7 +185,6 @@ function getProblemList () {
 	r.send();
 	r.onreadystatechange = () => {
 		if(r.readyState == 4 && r.status == 200 ) {
-			console.log('responseText >>> ', r.responseText);
 			var j = JSON.parse(r.responseText);
 			problemList = j;
 			init()
