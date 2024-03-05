@@ -5,6 +5,16 @@
 		"answer" : "10<br>11<br>10<br>20"
 	},
 	{
+		"problem" : "[2023년 1회 2번]<br><b>다음 C언어의 출력값을 작성하시오.</b><br><div class='code'><code><span class='blue-text'>#include </span><span class='red-text'><</span>stdio.h<span class='red-text'>></span><br><br><span class='blue-text'>int </span>main(){<p class='indent'><span class='blue-text'>char </span>a[] <span class='red-text'>= </span><span class='green-text'>\"Art\"</span>;<br><span class='blue-text'>char</span><span class='red-text'>*</span> p <span class='red-text'>=</span> <span class='blue-text'>NULL</span>;<br>p <span class='red-text'>= </span>a;<br><br><span class='blue-text'>printf</span>(<span class='green-text'>\"%s\\n\"</span>, a);<br><span class='blue-text'>printf</span>(<span class='green-text'>\"%c\\n\"</span>, <span class='red-text'>*</span>p);<br><span class='blue-text'>printf</span>(<span class='green-text'>\"%c\\n\"</span>, <span class='red-text'>*</span>a);<br><span class='blue-text'>printf</span>(<span class='green-text'>\"%s\\n\"</span>, p);<br><br><span class='red-text'>for</span>(<span class='blue-text'>int </span>i <span class='red-text'>= </span><span class='green-text'>0</span>; a[i] <span class='red-text'>!= </span><span class='green-text'>'\\0'</span>; i<span class='red-text'>++</span>)<br><span class='blue-text'>printf</span>(<span class='green-text'>\"%c\"</span>, a[i]);<br></p>}</code></div>", 
+		"type" : "single",
+		"answer" : "Art<br>A<br>A<br>Art<br>Art"
+	},
+	{
+		"problem" : "[2023년 1회 3번]<br><b>다음 C언어의 출력값을 작성하시오.</b><br><div class='code'><code><span class='blue-text'>#include </span><span class='red-text'><</span>stdio.h<span class='red-text'>></span><br><br><span class='blue-text'>int </span>main(){<p class='indent'><span class='blue-text'>char</span><span class='red-text'>*</span> a <span class='red-text'>=</span><span class='green-text'> \"qwer\"</span>;<br><span class='blue-text'>char</span><span class='red-text'>*</span> b <span class='red-text'>=</span><span class='green-text'> \"qwtety\"</span>;<br><br><span class='red-text'>for</span>(<span class='blue-text'>int</span> i <span class='red-text'>=</span> <span class='green-text'>0</span>; a[i] <span class='red-text'>!= </span><span class='green-text'>'\\0'</span>; i<span class='red-text'>++</span>){</p><p class='indent2'><span class='red-text'>for</span>(<span class='blue-text'>int</span> j <span class='red-text'>=</span> <span class='green-text'>0</span>; b[j] <span class='red-text'>!= </span><span class='green-text'>'\\0'</span>; j<span class='red-text'>++</span>){</p><p class='indent3'><span class='red-text'>if</span>(a[i] <span class='red-text'>== </span>b[j]) <span class='blue-text'>printf</span>(<span class='green-text'>\"%c\"</span>, a[i]);</p><p class='indent2'>}</p><p class='indent'>}</p>}</code></div>",
+		"type" : "single",
+		"answer" : "qwe"
+	},
+	{
 		"problem" : "[2023년 1회 4번]<br><b>다음 괄호안에 들어가는 용어의 Full Name 또는 약자를 작성하시오.</b><br><br>( )은/는 비동기적인 웹 애플리케이션의 제작을 위해 JavaScript와 XML을 이용한 비동기적 정보 교환 기법이다.<br><br>( )은/는 필요한 데이터만을 웹서버에 요청해서 받은 후 클라이언트에서 데이터에 대한 처리를 할 수 있다.<br>보통 SOAP이나 XML 기반의 웹 서비스 프로토콜이 사용되며, 웹 서버의 응답을 처리하기 위해 클라이언트 쪽에서는 자바스크립트를 쓴다.<br><br>( )은/는 Google Map과 Google pages에서 사용한 기술에 기반하여 제작되었다.",
 		"type" : "single",
 		"answer" : "AJAX###Asynchronous JavaScript and XML"
@@ -28,6 +38,32 @@
 		"problem" : "[2023년 1회 8번]<br><b>멀웨어(Malware)에 대한 다음 설명에서 괄호 (1~3)에 들어갈 알맞은 용어를 <보기>에서 찾아 쓰시오.</b><br><br><ul><li>( 1 ) : 윈도우나 응용 프로그램의 취약점 또는 E-mail 등을 통해 전파되며, ( 3 )과(와) 같이 자기복제가 가능하며 네트워크를 통해 스스로 전파가 가능하다.</li><li>( 2 ) : 정상적인 응용 프로그램에 포함되어 실행되는 악성코드로, 정상적인 응용 프로그램으로 위장하고 있다가 활성화되면 공격자는 이를 이용하여 사용자의 컴퓨터를 조종할 수 있게 된다.</li><li>( 3 ) : 정상 파일을 감염시키며, 자기복제가 가능하다. 파일을 통해 감염되며 네트워크를 통해 스스로 전파되지는 못한다.</li></ul>",
 		"type" : "single",
 		"answer" : "웜, 트로이목마, 바이러스"
+	},
+	{
+		"problem": "[2023년 1회 9번]<br><b>다음은 2진수 101110을 10진수로 변환하는 C언어 프로그램이다. 프로그램을 분석하여 괄호(1~2)에 들어갈 알맞은 답을 쓰시오.</b><br><div class='code'><code>#include <stdio.h><br>main() {<p class='indent'>int input = 101110;<br>int di = 1;<br>int sum = 0;<br>while (1) {</p><p class='indent2'>if (input == 0) break;<br>sum = sum + (input <span class='blue-text'>( 1 ) ( 2 )</span>) * di;<br>di = di * 2;<br>input = input / 10;</p><p class='indent'>}<br>printf(\"%d\", sum);</p>}</code></div>",
+		"type" : "single",
+		"answer" : "%, 10"
+	},
+	{
+		"problem" : "[2023년 1회 10번]<br><b>다음 설명에 해당하는 알맞은 용어를 쓰시오.</b><br><br>IP(Internet Protocol)의 주요 구성원 중 하나로, OSI 계층 모델의 네트워크 계층에 속한다. 네트워크 컴퓨터의 운영체제에서 오류 메시지를 수신하거나, 전송 경로를 변경하는 등 오류 처리를 위한 제어메시지를 주로 취급한다. 관련된 도구로 traceroute, pring이 있으며, ping of death와 같은 네트워크 공격 기법에 활용되기도 한다.<br>",
+		"type" : "single",
+		"answer" : "ICMP###Internet Control Message Protocol"
+	},
+	{
+		"problem" : "[2023년 1회 11번]<br><b>다음 설명에서 괄호에 들어갈 알맞은 디자인 패턴을 아래에서 찾아 쓰시오.</b><br><table><tbody><tr><td>생성 패턴</td><td>구조 패턴</td><td>행위 패턴</td></tr><tr><td>Abstract Factory<br>Builder<br>Factory Method<br>Prototype<br>Singleton</td><td>Adapter<br>Bridge<br>Composite<br>Decorator<br>Facade<br>Proxy</td><td>Chain of Responsibility<br>Command<br>Interpreter<br>Iterator<br>Mediator<br>Memento<br>Observer<br>Strategy<br>Template Method</td></tr></tbody></table><br>( )은/는 복잡한 시스템을 개발하기 쉽도록 클래스나 객체들을 조합하는 패턴에 속하며, 대리자라는 이름으로도 불린다. 내부에서는 객체 간의 복잡한 관계를 단순하게 정리해 주고, 외부에서는 객체의 세부적인 내용을 숨기는 역할을 한다.",
+		"type" : "single",
+		"answer" : "Proxy"
+	},
+	{
+		"problem" : "[2023년 1회 12번]<br><b>릴레이션을 구성하는 용어들에 대한 다음 설명에서 괄호(1~3)에 들어갈 알맞은 답을 쓰시오.</b><br><br><ul><li>( 1 ) : 릴레이션을 구성하는 각각의 행을 의미하며, 파일 구조에서는 레코드에 해당함</li><li>( 2 ) : 데이터 개체를 구성하고 있는 속성들에 데이터 타입이 정의되어 구체적인 데이터 값을 가진 것으로, 실제 값을 가진 튜플을 의미함</li><li>( 3 ) : 튜플의 개수를 의미함</li></ul><br>",
+		"type" :"single",
+		"answer": "튜플, 릴레이션 인스턴스, 카디널리티"
+	},
+	{
+		"problem" : "[2023년 1회 13번]<br><b><학생> 테이블에서 '이름'이 \"민수\"인 튜플을 삭제하고자 한다. 다음 <처리 조건>을 참고하여 SQL문을 작성하시오.</b><br><br><처리 조건><ul><li>최소한의 코드로 작성될 수 있도록 SQL문을 구성한다.</li><li>명령문 마지막의 세미콜론(;)은 생략하지 않는다.</li><li>인용 부호가 필요한 경우 작은따옴표(')를 사용한다.</li></ul>",
+		"type" : "single",
+		"answer" : "DELETE FROM 학생 WHERE 이름 = '민수';"
 	}
+
 
 ]
