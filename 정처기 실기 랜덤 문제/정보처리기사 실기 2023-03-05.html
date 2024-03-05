@@ -1,0 +1,400 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, 
+  maximum-scale=1.0, minimum-scale=1.0">
+		<script type="text/javascript" src="http://code.jquery.com/jquery-3.2.0.min.js" ></script>
+		<style type="text/css">
+			body {
+				font-family: Arial, sans-serif;
+				position:relative;
+				/* background:#40464b; */
+				height:100%;
+				padding:40px 5%;
+				margin:0;
+			}
+
+			input[type="text"] {
+				width: 98%;
+			}
+
+			input[type="checkbox"] {
+				/* display:none; */
+				-ms-transform: scale(1.5); /* IE */
+				  -moz-transform: scale(1.5); /* FF */
+				  -webkit-transform: scale(1.5); /* Safari and Chrome */
+				  -o-transform: scale(1.5); /* Opera */
+				  padding: 5px;
+			}
+
+			input[type="checkbox"] + label {
+				/* color:#f2f2f2; */
+			}
+
+			input[type="checkbox"] + label span {
+				display:inline-block;
+				width:19px;
+				height:19px;
+				margin:-2px 10px 0 0;
+				vertical-align:middle;
+				background:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/check_radio_sheet.png) left top no-repeat;
+				cursor:pointer;
+			}
+
+			input[type="checkbox"]:checked + label span {
+				background:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/check_radio_sheet.png) -19px top no-repeat;
+			}
+
+			input[type="radio"] {
+				display:none;
+			}
+
+			input[type="radio"] + label {
+				/* color:#f2f2f2; */
+				font-family:Arial, sans-serif;
+			}
+
+			input[type="radio"] + label span {
+				display:inline-block;
+				width:19px;
+				height:19px;
+				margin:-2px 10px 0 0;
+				vertical-align:middle;
+				background:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/check_radio_sheet.png) -38px top no-repeat;
+				cursor:pointer;
+			}
+
+			input[type="radio"]:checked + label span {
+				background:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/check_radio_sheet.png) -57px top no-repeat;
+			}
+		
+			select {
+				width: 200px;
+				height: 300px;
+				padding-left: 10px;
+				font-size: 18px;
+				color: #006fff;
+				border: 1px solid #006fff;
+				border-radius: 3px;
+				-webkit-appearance: none; 
+				-moz-appearance: none;    
+				appearance: none;
+				background: url('select-arrow.png') no-repeat 95% 50%; /* 화살표 아이콘 추가 */       
+			}
+			select::-ms-expand {
+				display: none;            
+			}
+					
+			.code {
+				font-family: Consolas,"courier new" !important;
+				background-color: #f1f1f1 !important;
+				font-size: 105%;
+				padding: 2px;
+			}
+			.th { 
+				padding: 15px 3px 15px 3px;
+				width: 160px;
+				display: inline-block; 
+			}
+			
+			
+			.textDivReal{
+				height:20px;
+				margin: 5px;
+				border:1px solid;
+			}
+			.textDiv { 
+				 padding: 10px;
+				 overflow-y: 
+				 //scroll; 
+				 //height:100px;
+				 border:1px solid;
+				 margin: 5px;
+			}
+			
+			.textDiv1 { 
+				 padding: 10px;
+			}
+			
+			.list { 
+				 padding: 5px;
+			}
+			span.red-text {
+				color: orangered;
+			}
+			span.green-text {
+				color: green;
+			}
+			span.blue-text {
+				color: blue;
+			}
+			p.indent {
+				padding-left: 1.8em;
+			}
+			p.indent2 {
+				padding-left: 3.6em;
+			}
+			p.indent3 {
+				padding-left: 5.4em;
+			}
+			td {
+				border: 1px solid #9d9d9d;
+				text-align: center;
+			}
+		</style>
+			
+		<script type="text/javascript">
+			
+			
+			//var problemList = new Array();
+			var problembakList = new Array();
+			var qList = new Array();
+			var problemObj;
+			var list;
+			var obj;
+
+
+/*problemList = [
+	{
+		"problem" : "문제1", 
+		"type" : "multi",
+		"list" : [
+			{"question" : "1-1", "answer" : true},
+			{"question" : "1-2", "answer" : false},
+			{"question" : "1-3", "answer" : false},
+			{"question" : "1-4", "answer" : false}
+		]
+	},
+	{
+		"problem" : "문제2", 
+		"type" : "single",
+		"answer" : "tom"
+	}
+]*/
+var problemList = [];
+
+function getProblemList () {
+	var url = "https://gist.githubusercontent.com/dmskk/12c49093e17302c51755e7fcb52aedd1/raw/5625d50a8a05dd5b895c8c73f9ec5359856d43a4/qList.json";
+	var r = new XMLHttpRequest();
+	r.open("GET", url);
+	// r.responseType = "json";
+	r.send();
+	r.onreadystatechange = () => {
+		if(r.readyState == 4 && r.status == 200 ) {
+			console.log('responseText >>> ', r.responseText);
+			var t = r.responseText;
+			t = t.replace(/\\n/g, "\\n")
+					.replace(/\\'/g, "\\'")
+					.replace(/\\&/g, "\\&")
+					.replace(/\\r/g, "\\r")
+					.replace(/\\t/g, "\\t")
+			problemList = j;
+			init()
+		}
+	}
+}
+
+
+
+getProblemList();
+
+function init() {
+
+	console.log("##problemList", problemList);
+	
+	problembakList = problemList;
+	
+	var total_count = problemList.length ;
+	var total_O_cnt = 0;
+	var total_X_cnt = 0;
+	$(document).ready(function(){
+	
+		$("#cnt1").html(problemList.length);
+		$(".Clean").click(function(){
+			total_O_cnt = 0;
+			total_X_cnt = 0;
+			$("#list").html("");
+		});
+		
+						
+		$("#btn1").click(function(){
+			total_O_cnt = 0;
+			total_X_cnt = 0;
+			if($("#cnt").val() > 0 && $("#cnt").val() <= total_count){
+				var h = "";
+				var l = fnRandom(total_count);
+				for(var i = 0; $("#cnt").val() > i; i++){
+					h += fnTextDiv(i, problembakList[l[i]-1]);
+				}
+				
+				$("#list").html(h);
+			}else{
+				alert("범위를 지정해주세요");
+			}
+		});
+									
+	});
+}
+			
+			
+			function fnList(t){
+				if ($(t).find('input:checkbox[name="gender"]').is(":checked")) {
+					$(t).find('input:checkbox[name="gender"]').attr("checked", false);
+				}else{
+					$(t).find('input:checkbox[name="gender"]').attr("checked", true);
+				}
+			}
+			
+			function fnTextDiv(c, o){
+				var h = "";
+				switch(o.type) {
+					case "multi":
+						var d = new Array();
+						var oList = fnRandom(o.list.length);
+						for(var i in oList){ 
+							if(o.list[oList[i]-1].answer) d.push((Number(i) + 1));
+						}
+						h += "<div class='textDiv' data-no='" + c + "' data-d='" + d + "'>";
+						h += "<div>" + (c + 1) + ". "+ o.problem + "<input type='button' name='btnCheck' class='btnCheck' onclick='fnBtnAnswer(this);'  data-type='multi' value='선택'></div>";
+						h += "<div class='textDiv1'>";
+						for(var i in o.list){
+							h += "<div class='list' onclick='fnList(this);' ><input type='checkbox' name='gender' value='" + (Number(i) + 1)+ "' />" + (Number(i) + 1) + ". " + o.list[oList[i]-1].question + "</div>";
+						}
+						h += "</div>";
+						h += "</div>";
+						break;
+					case "single":
+						var d = o.answer;
+						h += "<div class='textDiv' data-no='" + c + "' data-d='" + d + "'>";
+						h += "<div>" + (c + 1) + ". " + o.problem + "<input type='button' name='btnCheck' class='btnCheck' onclick='fnBtnAnswer(this);' data-type='single' value='입력'></div>";
+						h += "<div> <textarea></textarea>";
+						h += "</div>";
+						h += "</div>";
+						break;
+					default: break;
+				}
+				return h;
+			}
+			
+			function fnBtnAnswer(t){
+				switch($(t).data("type")) {
+					case "multi": fnBtnCheck(t); break;
+					case "single": fnBtnType(t); break;
+				}
+				if($("#cnt").val() == (total_O_cnt + total_X_cnt)){
+					alert("총 " + $("#cnt").val() + "문제 중 맞은 수 : " + total_O_cnt + ", 틀린 수  : " + total_X_cnt );
+				}
+				$(t).hide();
+			}
+
+			function fnBtnCheck(t){
+				var d = $(t).parent().parent().data("d");
+				var dL = String(d).split(",").length;
+				var ch_BtnCheck = true;
+				var thisCheckedCnt = 0;
+				$(t).parent().parent().find('input:checkbox[name="gender"]').each(function() {
+					var chListCheck = false;
+					if(this.checked && String(d).indexOf(this.value) > -1){
+						$(this).parent().css("color","rgb(5, 226, 5)");//#00FF00 green
+						chListCheck = true;
+					}else if(!this.checked && String(d).indexOf(this.value) > -1){
+						$(this).parent().css("color","rgb(5, 226, 5)");
+						chListCheck = true;
+					}else if(this.checked && String(d).indexOf(this.value) == -1){
+						$(this).parent().css("color","red");
+						ch_BtnCheck = false;
+					}
+					if(this.checked){
+						thisCheckedCnt++;
+					}
+				});
+				if(ch_BtnCheck && dL == thisCheckedCnt){
+					total_O_cnt++;
+					$(t).parent().parent().css("border-color","rgb(5, 226, 5)");
+					console.log('맞은 개수 : '+total_O_cnt+ ' 틀린 개수 : '+total_X_cnt); 
+				}else{
+					total_X_cnt++;
+					$(t).parent().parent().css("border-color","red");
+					console.log('맞은 개수 : '+total_O_cnt+ ' 틀린 개수 : '+total_X_cnt); 
+				}
+			}
+
+			function fnBtnType(t) {
+				var dList = $(t).parent().parent().data("d").split("###");
+				var a = $(t).parent().next().children().val();
+				var flag = false;
+				for(var d of dList) {
+					var dCopy = d.toLowerCase().replaceAll(" ", "");
+					a = a.toLowerCase().replaceAll(/(\n|\r\n)/g, '<br>').replaceAll(" ", "");
+					while (a.endsWith("<br>")) {
+						aList = a.split("<br>");
+						aList.pop();
+						a = aList.join('<br>');
+					}
+					if(dCopy == a || dCopy.replaceAll(",","<br>") == a) {
+						flag = true;
+						total_O_cnt++;
+						$(t).parent().next().children().css("color", "rgb(5, 226, 5)");
+						$(t).parent().parent().css("border-color", "rgb(5, 226, 5)");
+						console.log('맞은 개수 : '+total_O_cnt+ ' 틀린 개수 : '+total_X_cnt); 
+						break;
+					}
+				}
+
+				if(!flag) {
+					total_X_cnt++;
+					$(t).parent().next().children().css("color", "red");
+					$(t).parent().parent().css("border-color", "red");
+					console.log('맞은 개수 : '+total_O_cnt+ ' 틀린 개수 : '+total_X_cnt);
+				}
+
+				var d = $(t).parent().parent().data("d");
+				if(d.includes("###")) {
+					d = d.replace("###", " (");
+					d += ")";
+				}
+				var h = "<div>정답 : ";
+				h += "<span style='color: rgb(5, 226, 5);'>" + d + "</span>";
+				h += "</div>";
+				$(t).parent().next().append(h);
+			}
+						
+			function fnRandom(n){
+				var ar = new Array();
+				var temp;
+				var rnum;
+			   
+				for(var i=1; i<=n; i++){
+					ar.push(i);
+				}
+		 
+				for(var i=0; i< ar.length ; i++){
+					rnum = Math.floor(Math.random() *n); //난수발생
+					temp = ar[i];
+					ar[i] = ar[rnum];
+					ar[rnum] = temp;
+				}
+		 
+				return ar;
+			}
+			
+			
+		</script>
+		  
+	</head>
+	
+	<body>
+		<div>
+		</div>
+		<label for="cnt">Number(1-<span id="cnt1"></span>):</label>
+
+		<input type="number" id="cnt" name="cnt" min="1" max="60">
+		<input type="button" name="btn1" id="btn1" value="생성">
+		
+		<div id ="list">
+			
+		</div>
+		
+	</body>
+</html>

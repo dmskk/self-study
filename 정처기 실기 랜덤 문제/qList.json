@@ -5,16 +5,6 @@
 		"answer" : "10<br>11<br>10<br>20"
 	},
 	{
-		"problem" : "[2023년 1회 2번]<br><b>다음 C언어의 출력값을 작성하시오.</b><br><div class='code'><code><span class='blue-text'>#include </span><span class='red-text'><</span>stdio.h<span class='red-text'>></span><br><br><span class='blue-text'>int </span>main(){<p class='indent'><span class='blue-text'>char </span>a[] <span class='red-text'>= </span><span class='green-text'>\"Art\"</span>;<br><span class='blue-text'>char</span><span class='red-text'>*</span> p <span class='red-text'>=</span> <span class='blue-text'>NULL</span>;<br>p <span class='red-text'>= </span>a;<br><br><span class='blue-text'>printf</span>(<span class='green-text'>\"%s\\n\"</span>, a);<br><span class='blue-text'>printf</span>(<span class='green-text'>\"%c\\n\"</span>, <span class='red-text'>*</span>p);<br><span class='blue-text'>printf</span>(<span class='green-text'>\"%c\\n\"</span>, <span class='red-text'>*</span>a);<br><span class='blue-text'>printf</span>(<span class='green-text'>\"%s\\n\"</span>, p);<br><br><span class='red-text'>for</span>(<span class='blue-text'>int </span>i <span class='red-text'>= </span><span class='green-text'>0</span>; a[i] <span class='red-text'>!= </span><span class='green-text'>\'\\0\'</span>; i<span class='red-text'>++</span>)<br><span class='blue-text'>printf</span>(<span class='green-text'>\"%c\"</span>, a[i]);<br></p>}</code></div>", 
-		"type" : "single",
-		"answer" : "Art<br>A<br>A<br>Art<br>Art"
-	},
-	{
-		"problem" : "[2023년 1회 3번]<br><b>다음 C언어의 출력값을 작성하시오.</b><br><div class='code'><code><span class='blue-text'>#include </span><span class='red-text'><</span>stdio.h<span class='red-text'>></span><br><br><span class='blue-text'>int </span>main(){<p class='indent'><span class='blue-text'>char</span><span class='red-text'>*</span> a <span class='red-text'>=</span><span class='green-text'> \"qwer\"</span>;<br><span class='blue-text'>char</span><span class='red-text'>*</span> b <span class='red-text'>=</span><span class='green-text'> \"qwtety\"</span>;<br><br><span class='red-text'>for</span>(<span class='blue-text'>int</span> i <span class='red-text'>=</span> <span class='green-text'>0</span>; a[i] <span class='red-text'>!= </span><span class='green-text'>\'\\0\'</span>; i<span class='red-text'>++</span>){</p><p class='indent2'><span class='red-text'>for</span>(<span class='blue-text'>int</span> j <span class='red-text'>=</span> <span class='green-text'>0</span>; b[j] <span class='red-text'>!= </span><span class='green-text'>\'\\0\'</span>; j<span class='red-text'>++</span>){</p><p class='indent3'><span class='red-text'>if</span>(a[i] <span class='red-text'>== </span>b[j]) <span class='blue-text'>printf</span>(<span class='green-text'>\"%c\"</span>, a[i]);</p><p class='indent2'>}</p><p class='indent'>}</p>}</code></div>",
-		"type" : "single",
-		"answer" : "qwe"
-	},
-	{
 		"problem" : "[2023년 1회 4번]<br><b>다음 괄호안에 들어가는 용어의 Full Name 또는 약자를 작성하시오.</b><br><br>( )은/는 비동기적인 웹 애플리케이션의 제작을 위해 JavaScript와 XML을 이용한 비동기적 정보 교환 기법이다.<br><br>( )은/는 필요한 데이터만을 웹서버에 요청해서 받은 후 클라이언트에서 데이터에 대한 처리를 할 수 있다.<br>보통 SOAP이나 XML 기반의 웹 서비스 프로토콜이 사용되며, 웹 서버의 응답을 처리하기 위해 클라이언트 쪽에서는 자바스크립트를 쓴다.<br><br>( )은/는 Google Map과 Google pages에서 사용한 기술에 기반하여 제작되었다.",
 		"type" : "single",
 		"answer" : "AJAX###Asynchronous JavaScript and XML"
@@ -33,6 +23,11 @@
 		"problem" : "[2023년 1회 7번]<br><b>다음 설명에 해당하는 알맞은 용어를 영문 3글자로 쓰시오</b><br><br><ul><li>다른 컴퓨터에 로그인, 원격 명령 실행, 파일 복사 등을 수행할 수 있도록 다양한 기능을 지원하는 프로토콜 또는 이를 이용한 응용 프로그램이다.</li><li>데이터 암호화와 강력한 인증 방법으로 보안성이 낮은 네트워크에서도 안전하게 통신할 수 있다.</li><li>키(key)를 통한 인증 방법을 사용하려면 사전에 클라이언트의 공개키를 서버에 등록해야 한다.</li><li>기본적으로는 22번 포트를 사용한다.</li></ul>",
 		"type" : "single",
 		"answer" : "SSH"
+	},
+	{
+		"problem" : "[2023년 1회 8번]<br><b>멀웨어(Malware)에 대한 다음 설명에서 괄호 (1~3)에 들어갈 알맞은 용어를 <보기>에서 찾아 쓰시오.</b><br><br><ul><li>( 1 ) : 윈도우나 응용 프로그램의 취약점 또는 E-mail 등을 통해 전파되며, ( 3 )과(와) 같이 자기복제가 가능하며 네트워크를 통해 스스로 전파가 가능하다.</li><li>( 2 ) : 정상적인 응용 프로그램에 포함되어 실행되는 악성코드로, 정상적인 응용 프로그램으로 위장하고 있다가 활성화되면 공격자는 이를 이용하여 사용자의 컴퓨터를 조종할 수 있게 된다.</li><li>( 3 ) : 정상 파일을 감염시키며, 자기복제가 가능하다. 파일을 통해 감염되며 네트워크를 통해 스스로 전파되지는 못한다.</li></ul>",
+		"type" : "single",
+		"answer" : "웜, 트로이목마, 바이러스"
 	}
 
 ]
